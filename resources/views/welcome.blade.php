@@ -435,7 +435,6 @@
                         </div>
                     </div>
                 </div>
-                <h2>hallo</h2>
                 <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
                     <div class="flex items-center">
                         <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
