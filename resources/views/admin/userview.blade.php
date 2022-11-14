@@ -10,14 +10,21 @@
                     <div class="row">
                         <!-- Grid column -->
                         <div class="col-md-12">
-                            <h2 class="pt-3 pb-4 text-center font-bold font-up deep-purple-text">Search within
-                                Users</h2>
-                            <div class="input-group md-form form-sm form-2 pl-0">
-                                <input class="form-control my-0 py-1 pl-3 purple-border" type="search"
-                                       placeholder="Search something here..." aria-label="Search">
-                                <span class="input-group-addon waves-effect purple lighten-2" id="basic-addon1"><a><i
-                                            class="fa fa-search white-text" aria-hidden="true"></i></a></span>
-                            </div>
+
+                            <form action="{{route('admin.search')}}" method="post">
+                                @csrf
+                                <h2 class="pt-3 pb-4 text-center font-bold font-up deep-purple-text">Search within
+                                    Users</h2>
+                                <div class="input-group md-form form-sm form-2 pl-0">
+                                    <input class="form-control my-0 py-1 pl-3 purple-border" type="search"
+                                           placeholder="Search for name or e-mail..." aria-label="Search" name="search">
+                                    <span class="input-group-addon waves-effect purple lighten-2"
+                                          id="basic-addon1"><a><i
+                                                class="fa fa-search white-text" aria-hidden="true"></i></a></span>
+                                </div>
+                            </form>
+
+
                         </div>
                         <!-- Grid column -->
                     </div>

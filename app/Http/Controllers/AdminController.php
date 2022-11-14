@@ -36,4 +36,15 @@ class AdminController extends Controller
             abort(403, 'Unauthorized action');
         }
     }
+
+    public function search(Request $request)
+    {
+        $searchedItem = $request->input('search');
+
+        $users = User::where('name', '=', $searchedItem)
+            ->orWhere('email', '=', $searchedItem)
+            ->get();
+
+        return view('admin.userview', compact('users'));
+    }
 }

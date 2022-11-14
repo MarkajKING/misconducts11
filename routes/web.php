@@ -24,4 +24,7 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get('admin/users', [AdminController::class, 'index'])->name('admin.index');
 Route::patch('admin/{user}/confidantchecker', [AdminController::class, 'confidantchecker'])->name('admin.confidantchecker');
+Route::post('admin/search', [AdminController::class, 'search'])->name('admin.search');
+
+
 
