@@ -17,8 +17,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/list', [ConfidantController::class, 'index'])->name('list');
 
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+//Confidants
+Route::get('/list', [ConfidantController::class, 'index']);

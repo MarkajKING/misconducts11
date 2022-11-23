@@ -27,11 +27,11 @@
                                 @foreach($confidants as $confidant)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $confidants->first_name }}</td>
-                                            <td>{{ $confidants->age }}</td>
-                                            <td>{{ $confidants->gender }}</td>
-                                            <td>{{ $confidants->experiences }}</td>
-                                            <td>{{ $confidants->about}}</td>
+                                            <td>{{ $confidant->name }}</td>
+                                            <td>{{ $confidant->age }}</td>
+                                            <td>{{ $confidant->gender }}</td>
+                                            <td>{{ $confidant->speciality}}</td>
+                                            <td>{{ $confidant->about}}</td>
                                             <td><i class="glyphicon glyphicon-user" style="font-size:24px;color:green;"></i>
                                             </td>
                                             <td>
