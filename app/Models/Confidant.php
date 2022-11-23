@@ -9,7 +9,7 @@ class Confidant extends Model
 {
     protected $table = 'confidants';
     protected $primaryKey = 'id';
-    protected $fillable = ['first_name', 'last_name', 'gender', 'age', 'background', 'email', 'phone_number', 'photo', 'excerpt', 'about', 'experiences', 'motto'];
+    protected $fillable = ['name', 'gender', 'age', 'speciality', 'background', 'email', 'phone', 'photo', 'excerpt', 'about', 'experiences', 'motto'];
 
     use HasFactory;
 }

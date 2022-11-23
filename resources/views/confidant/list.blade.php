@@ -15,12 +15,11 @@
                                 <thead>
                                 <tr>
                                     <th>#</th>
+                                    <th></th>
                                     <th>Name</th>
                                     <th>Age</th>
                                     <th>Gender</th>
                                     <th>Specialization</th>
-                                    <th>About</th>
-                                    <th>Excerpt</th>
                                     <th>Availability</th>
                                 </tr>
                                 </thead>
@@ -33,7 +32,6 @@
                                             <td>{{ $confidant->gender }}</td>
                                             <td>{{ $confidant->speciality}}</td>
                                             <td>{{ $confidant->about}}</td>
-                                            <td>{{ $confidant->excerpt}}</td>
                                             <td><i class="glyphicon glyphicon-user" style="font-size:24px;color:green;"></i>
                                             </td>
                                             <td>

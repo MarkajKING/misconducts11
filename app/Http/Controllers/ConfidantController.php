@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Confidant;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
 
 class ConfidantController extends Controller
 {
@@ -12,56 +11,44 @@ class ConfidantController extends Controller
     public function index()
     {
         $confidants = Confidant::all();
-        return view ('list')->with('list', $confidants);
+        return view('confidant.list')->with('confidant', $confidants);
     }
 
-    //This function refers to the admin page which will be changed but i just needed it for now :)
-    public function all(Confidant $confidant)
-    {
-        return view('admin.index', [
-            'confidant' => $confidant
-        ]);
-    }
-
-    //Show page where the selected confidants information is shown
-    public function show (Confidant $confidant)
-    {
-        return view('confidant.show', [
-            'confidant' => $confidant
-        ]);
-    }
-
-    //Create page where the confidant can write their information
     public function create()
     {
-        return view('confidant.info');
+        return view('confidant.create');
     }
 
-    //Function to store the written information in the database
-    public function store()
+    public function store(Request $request)
     {
-        $attributes = request()->validate([
-            'first_name' => 'required',
-            'last_name' => 'required',
-            'age' => 'required|max:2|min:1',
-            'gender' => 'required',
-            'background' => 'required|min:3|max:25',
-            'phone_number' => ['required','numeric', 'digits:10'],
-            'email' => ['required', 'email', 'min:3'],
-            'photo' => ['required', 'image'],
-
-            'excerpt' => 'required|max:400|min:100',
-            'about' => 'required|min:100',
-            'experiences' => 'required|min:100',
-            'motto' => 'required|min:1|max:30',
-        ]);
-
-        $attributes['user_id'] = auth()->id();
-        $attributes['photo'] = request()->file('photo')->store('photos');
-
-        Confidant::create($attributes);
-
-        return redirect('/');
+        $input = $request->all();
+        Confidant::create($input);
+        return redirect('confidant')->with('flash_message', 'Confidant saved!');
     }
 
+    public function show($id)
+    {
+        $confidant = Confidant::find($id);
+        return view('confidant.show')->with('confidant', $confidant);
+    }
+
+    public function edit($id)
+    {
+        $confidant = Confidant::find($id);
+        return view('confidant.edit')->with('confidant', $confidant);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $confidant = Confidant::find($id);
+        $input = $request->all();
+        $confidant->update($input);
+        return redirect('confidant')->with('flash_message', 'Confidant updated!');
+    }
+
+    public function destroy($id)
+    {
+        Confidant::destroy($id);
+        return redirect('confidant')->with('flash_message', 'Confidant deleted!');
+    }
 }
