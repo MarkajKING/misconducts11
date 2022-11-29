@@ -58,40 +58,20 @@ View of the page where the confidant writes information about him or herself
 
                         <div class="mb-6">
                             <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
-                                   for="first_name"
+                                   for="name"
                             >
-                                Voornaam
+                                Voor- en Achternaam
                             </label>
 
                             <input class="border border-gray-400 p-2 w-full rounded"
                                    type="text"
-                                   name="first_name"
-                                   id="first_name"
-                                   value="{{ old('first_name') }}"
+                                   name="name"
+                                   id="name"
+                                   value="{{ old('name') }}"
                                    required
                             >
 
-                            @error('first_name')
-                            <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
-                            @enderror
-                        </div>
-
-                        <div class="mb-6">
-                            <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
-                                   for="last_name"
-                            >
-                                Achternaam
-                            </label>
-
-                            <input class="border border-gray-400 p-2 w-full rounded"
-                                   type="text"
-                                   name="last_name"
-                                   id="last_name"
-                                   value="{{ old('last_name') }}"
-                                   required
-                            >
-
-                            @error('last_name')
+                            @error('name')
                             <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
                             @enderror
                         </div>
@@ -161,6 +141,26 @@ View of the page where the confidant writes information about him or herself
 
                         <div class="mb-6">
                             <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
+                                   for="language"
+                            >
+                                Taal
+                            </label>
+
+                            <input class="border border-gray-400 p-2 w-full rounded"
+                                   type="text"
+                                   name="language"
+                                   id="language"
+                                   value="{{ old('language') }}"
+                                   required
+                            >
+
+                            @error('language')
+                            <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <div class="mb-6">
+                            <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
                                    for="email"
                             >
                                 E-mail
@@ -182,21 +182,21 @@ View of the page where the confidant writes information about him or herself
 
                         <div class="mb-6">
                             <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
-                                   for="phone_number"
+                                   for="phone"
                             >
                                 Telefoon nummer
                             </label>
 
                             <input class="border border-gray-400 p-2 w-full rounded"
                                    type="text"
-                                   name="phone_number"
-                                   id="phone_number"
-                                   value="{{ old('phone_number') }}"
+                                   name="phone"
+                                   id="phone"
+                                   value="{{ old('phone') }}"
                                    placeholder="06-00000000"
                                    required
                             >
 
-                            @error('phone_number')
+                            @error('phone')
                             <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
                             @enderror
                         </div>
@@ -227,6 +227,31 @@ View of the page where the confidant writes information about him or herself
                             </div>
                         </div>
 
+                        <div class="mb-6">
+                            <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
+                                   for="speciality"
+                            >
+                                Gespecialiseerd in
+                            </label>
+
+                            <select class="border border-gray-400 p-2 w-full rounded"
+                                    type="text"
+                                    name="speciality"
+                                    id="speciality"
+                                    required
+                            >
+                                <option>-</option>
+                                <option>Intimidatie</option>
+                                <option>Discriminatie</option>
+                                <option>Pesten</option>
+                                <option>Seksuele intimidatie</option>
+                                <option>Geweld/Agressie</option>
+                            </select>
+
+                            @error('speciality')
+                            <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                            @enderror
+                        </div>
 
                         <div class="mb-6">
                             <label class="block mb-2 uppercase font-bold text-xs text-gray-700"

@@ -43,15 +43,16 @@ class ConfidantController extends Controller
     public function store()
     {
         $attributes = request()->validate([
-            'first_name' => 'required',
-            'last_name' => 'required',
+            'name' => 'required',
             'age' => 'required|max:2|min:1',
             'gender' => 'required',
             'background' => 'required|min:3|max:25',
-            'phone_number' => ['required','numeric', 'digits:10'],
+            'language' => 'required',
+            'phone' => ['required','numeric', 'digits:10'],
             'email' => ['required', 'email', 'min:3'],
             'photo' => ['required', 'image'],
 
+            'speciality' => 'required',
             'excerpt' => 'required|max:400|min:100',
             'about' => 'required|min:100',
             'experiences' => 'required|min:100',

@@ -25,7 +25,7 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 //Confidants
 Route::get('/vertrouwenspersonen', [ConfidantController::class, 'index']);
-Route::get('/vertrouwenspersonen/{confidant:first_name}', [ConfidantController::class, 'show']);
+Route::get('/vertrouwenspersonen/{confidant:name}', [ConfidantController::class, 'show']);
 
 Route::post('/admin/mijn-account', [ConfidantController::class, 'store']);
 Route::get('/admin/mijn-informatie/create', [ConfidantController::class, 'create']);

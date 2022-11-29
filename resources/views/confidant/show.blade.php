@@ -33,20 +33,25 @@ View of the page where the information about the chosen confidant is shown
 
                     <div class="mx-auto max-w-2xl px-4 pt-10 pb-16 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pt-16 lg:pb-24">
                         <div class="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
-                            <h1 class="text-5xl font-bold tracking-tight text-gray-900 sm:text-3xl">{{ $confidant->first_name }} {{ $confidant->last_name }}</h1>
+                            <h1 class="text-5xl font-bold tracking-tight text-gray-900 sm:text-3xl">{{ $confidant->name }}</h1>
                         </div>
 
-                        <div class="mt-4 lg:row-span-3 lg:mt-0 bg-light px-5 py-0 rounded shadow-md">
+                        <div class="mt-4 lg:row-span-3 lg:mt-0 bg-light px-5 pb-10 rounded shadow-md">
                             <div class="h-64 w-64 mt-5 mb-5">
                                 <img src="{{ asset('storage/' . $confidant->photo) }}" role="img" class="rounded-full object-cover h-full w-full shadow-md" />
                             </div>
 
                             <form class="mt-10">
                                 <div>
-                                    <h3 class="text-sm font-bold text-gray-900 ">{{ $confidant->first_name }} {{ $confidant->last_name }}</h3>
+                                    <h3 class="text-sm font-bold text-gray-900 ">{{ $confidant->name }}</h3>
                                         <p class="mt-1 mb-1"> Leeftijd: {{ $confidant->age }}</p>
                                         <p class="mt-1 mb-1"> Geslacht: {{ $confidant->gender }}</p>
                                         <p class="mt-1 mb-1"> Achtergrond: {{ $confidant->background }}</p>
+                                    <p class="mt-1 mb-1"> Talen: {{ $confidant->language }}</p>
+                                </div>
+
+                                <div>
+                                    <p class="mt-3 mb-1"> Gespecialiseerd in het onderwerp {{ $confidant->speciality }}</p>
                                 </div>
 
                                 <div class="mt-10">
@@ -55,7 +60,7 @@ View of the page where the information about the chosen confidant is shown
                                     </div>
                                 </div>
 
-{{--                                <button type="submit" class="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Kies {{ $confidant->first_name }}</button>--}}
+                                <button type="submit" class="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Kies {{ $confidant->name }}</button>
                             </form>
                         </div>
 
@@ -81,7 +86,7 @@ View of the page where the information about the chosen confidant is shown
                                 <h3 class="text-base font-bold text-gray-900">Contact</h3>
 
                                 <div class="mt-0">
-                                    <p class="text-base text-gray-900 m-0 p-0"> <i class="fa-solid fa-phone"></i> &nbsp; &nbsp; &nbsp; {{ $confidant->phone_number }} </p>
+                                    <p class="text-base text-gray-900 m-0 p-0"> <i class="fa-solid fa-phone"></i> &nbsp; &nbsp; &nbsp; {{ $confidant->phone}} </p>
                                     <p class="text-base text-gray-900 m-0 p-0"> <i class="fa-solid fa-envelope"></i> &nbsp; &nbsp; &nbsp; {{ $confidant->email }} </p>
                                 </div>
                             </div>

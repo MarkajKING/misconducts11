@@ -17,15 +17,16 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id');
 
-            $table->string('first_name');
-            $table->string('last_name');
+            $table->string('name');
             $table->string('gender');
             $table->integer('age');
             $table->string('background');
+            $table->string('language');
             $table->string('email');
-            $table->string('phone_number');
+            $table->string('phone');
             $table->string('photo')->nullable();
 
+            $table->string('speciality');
             $table->text('excerpt');
             $table->text('about');
             $table->text('experiences');
