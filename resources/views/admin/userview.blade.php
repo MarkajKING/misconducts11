@@ -57,13 +57,12 @@
                                         @csrf
                                         @if($user->is_confidant)
                                             <td>
-                                                <button class="btn btn-success" type="submit">Remove
-                                                    Confidant Rights
+                                                <button class="btn btn-success" type="submit">Verwijder vetrouwenspersoon
                                                 </button>
                                             </td>
                                         @else
                                             <td>
-                                                <button class="btn btn-warning" type="submit">Add Confidant
+                                                <button class="btn btn-warning" type="submit">Voeg vertrouwenspersoon toe
                                                     Rights
                                                 </button>
                                             </td>
