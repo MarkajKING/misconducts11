@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Confidant;
 use Illuminate\Http\Request;
+use App\Models\Confidant;
 
 class ConfidantController extends Controller
 {
@@ -11,7 +11,7 @@ class ConfidantController extends Controller
     public function index()
     {
         $confidants = Confidant::all();
-        return view('confidant.list')->with('confidant', $confidants);
+        return view('confidant.list', compact('confidants'));
     }
 
     public function create()
