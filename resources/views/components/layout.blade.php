@@ -5,7 +5,7 @@ Blade component of layout of the nav-bar
 <!doctype html>
 
 <head>
-<title>{{ config('app.name', 'Laravel') }}</title>
+<title>My.Conduct</title>
 <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
@@ -23,7 +23,7 @@ Blade component of layout of the nav-bar
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
-                {{ config('app.name', 'Laravel') }}
+                My.Conduct
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>
@@ -58,14 +58,27 @@ Blade component of layout of the nav-bar
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+
+                                {{--Link naar mijn account--}}
+                                <a class="dropdown-item" href="/admin/mijn-account">Mijn Account</a>
+
+                                {{--Check if user is admin, then show the admin rights link--}}
+                                @if(Auth::user()->is_admin)
+                                    <a class="dropdown-item" href="{{route('admin.index')}}">Gebruikers Rechten</a>
+                                @endif
+
+                                {{--Check if user is confidant, then show the confidant rights link--}}
+                                @if(Auth::user()->is_confidant)
+                                    <a class="dropdown-item" href="{{route('confidant.create')}}">Maak je account</a>
+                                @endif
+
+
+
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
-
-                                {{--Link naar mijn account--}}
-                                <a class="dropdown-item" href="/admin/mijn-account">Mijn Account</a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf

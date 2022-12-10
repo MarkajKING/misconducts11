@@ -20,7 +20,7 @@ Blade component of the card design for the confidants on the page /vertrouwenspe
             <p class="text-gray-400 dark:text-white text-sm text-center">" {{ $confidant->motto }} "</p>
 
             <div class="w-full flex justify-center pt-2 pb-5">
-                <a href="/vertrouwenspersonen/{{ $confidant->name }}"
+                <a href="{{route('confidant.show', $confidant->id)}}"
                    class="inline-flex justify-center rounded-md border border-transparent bg-green-500 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 text-decoration-none"
                 >Meer informatie</a>
             </div>
