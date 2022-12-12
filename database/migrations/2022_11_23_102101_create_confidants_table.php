@@ -29,7 +29,6 @@ return new class extends Migration
             $table->text('about');
             $table->text('experiences');
             $table->text('motto');
-
             $table->timestamps();
         });
     }
