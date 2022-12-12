@@ -24,3 +24,4 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 //Confidants
 Route::get('/list', [ConfidantController::class, 'index']);
+Route::post('/list/addConfidantToUser', [ConfidantController::class, 'addConfidant'])->name('confidant.addConfidant');

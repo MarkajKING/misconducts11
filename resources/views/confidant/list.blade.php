@@ -26,24 +26,36 @@
                                 </thead>
                                 <tbody>
                                 @foreach($confidants as $confidant)
-                                        <tr>
-                                            <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $confidant->name }}</td>
-                                            <td>{{ $confidant->age }}</td>
-                                            <td>{{ $confidant->gender }}</td>
-                                            <td>{{ $confidant->speciality}}</td>
-                                            <td>{{ $confidant->about}}</td>
-                                            <td>{{ $confidant->excerpt}}</td>
-                                            <td><i class="glyphicon glyphicon-user" style="font-size:24px;color:green;"></i>
-                                            </td>
-                                            <td>
-                                                <a href="" title="View Confidant">
-                                                    <button class="btn btn-info btn-sm"><i class="fa fa-eye"
-                                                                                           aria-hidden="true"></i> Select
-                                                    </button>
-                                                </a>
-                                            </td>
-                                        </tr>
+                                    <tr>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $confidant->name }}</td>
+                                        <td>{{ $confidant->age }}</td>
+                                        <td>{{ $confidant->gender }}</td>
+                                        <td>{{ $confidant->speciality}}</td>
+                                        <td>{{ $confidant->about}}</td>
+                                        <td>{{ $confidant->excerpt}}</td>
+                                        <td><i class="glyphicon glyphicon-user" style="font-size:24px;color:green;"></i> <!-- inline css lookin ass -->
+                                        </td>
+                                        <td>
+                                            <form class="" action="{{route('confidant.addConfidant')}}"
+                                                  method="POST">
+                                                @csrf
+                                                <label for="{{$confidant->id}}" style="display: none"></label>
+                                                @if(Auth::user()->confidant_id === $confidant->id)
+                                                    <button
+                                                        type="submit" id="{{$confidant->id}}"
+                                                        name="gedoeRemove"
+                                                        class="btn btn-danger btn-sm" value="{{$confidant->id}}">verwijder</button>
+                                                @elseif(Auth::user()->confidant_id === null)
+                                                    <button
+                                                        type="submit" id="{{$confidant->id}}"
+                                                        name="gedoeAdd"
+                                                        class="btn btn-success btn-sm" value="{{$confidant->id}}">voeg toe</button>
+                                                @endif
+
+                                            </form>
+                                        </td>
+                                    </tr>
                                 @endforeach
                                 </tbody>
                             </table>
