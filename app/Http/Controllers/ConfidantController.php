@@ -26,11 +26,11 @@ class ConfidantController extends Controller
     }
 
     //Show page where the selected confidants information is shown
-    public function show (Confidant $confidant)
+    public function show($id)
     {
-        return view('confidant.show', [
-            'confidant' => $confidant
-        ]);
+        $confidant = Confidant::find($id);
+
+        return view('confidant.show', compact('confidant'));
     }
 
     //Create page where the confidant can write their information
@@ -48,7 +48,7 @@ class ConfidantController extends Controller
             'gender' => 'required',
             'background' => 'required|min:3|max:25',
             'language' => 'required',
-            'phone' => ['required','numeric', 'digits:10'],
+            'phone' => ['required', 'numeric', 'digits:10'],
             'email' => ['required', 'email', 'min:3'],
             'photo' => ['required', 'image'],
 
@@ -67,4 +67,11 @@ class ConfidantController extends Controller
         return redirect('/admin/mijn-account');
     }
 
+    public function filterLanguage($language)
+    {
+        $confidants = Confidant::where('language', 'like', '%' . $language . '%')
+        ->get();
+
+        return view('confidant.confidants', compact('confidants'));
+    }
 }

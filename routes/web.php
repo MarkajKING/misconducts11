@@ -34,10 +34,11 @@ Route::post('admin/search', [AdminController::class, 'search'])->name('admin.sea
 
 //Confidants
 Route::get('/vertrouwenspersonen', [ConfidantController::class, 'index']);
-Route::get('/vertrouwenspersonen/{confidant:name}', [ConfidantController::class, 'show']);
+Route::get('/vertrouwenspersonen/{language}', [ConfidantController::class, 'filterLanguage'])->name('confidant.filterLanguage');
+Route::get('/vertrouwenspersonen/show/{id}', [ConfidantController::class, 'show'])->name('confidant.show');
 
 Route::post('/admin/mijn-account', [ConfidantController::class, 'store']);
-Route::get('/admin/mijn-informatie/create', [ConfidantController::class, 'create']);
+Route::get('/admin/mijn-informatie/create', [ConfidantController::class, 'create'])->name('confidant.create');
 Route::get('/admin/mijn-account', [ConfidantController::class, 'all']);
 
 
