@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Confidant;
+use Illuminate\Support\Facades\Auth;
 
 class ConfidantController extends Controller
 {
@@ -50,5 +52,19 @@ class ConfidantController extends Controller
     {
         Confidant::destroy($id);
         return redirect('confidant')->with('flash_message', 'Confidant deleted!');
+    }
+
+    public function addConfidant(Request $request)
+    {
+//        dd($request);
+        $user = User::find(Auth::user()->id);
+        if ($request->has('gedoeAdd')) {
+            $user->confidant_id = $request->input('gedoeAdd');
+        } elseif ($request->has('gedoeRemove')) {
+            $user->confidant_id = null;
+        }
+        $user->save();
+
+        return redirect('list')->with('flash_message', 'Confidant updated!');
     }
 }
