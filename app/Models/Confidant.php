@@ -12,4 +12,9 @@ class Confidant extends Model
     protected $fillable = ['name', 'gender', 'age', 'speciality', 'background', 'email', 'phone', 'photo', 'excerpt', 'about', 'experiences', 'motto'];
 
     use HasFactory;
+=======
+
+    protected  $guarded = [];
+
+
 }
