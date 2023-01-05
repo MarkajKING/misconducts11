@@ -43,7 +43,7 @@
                         <!--Table head-->
                         <!--Table body-->
                         <tbody>
-                        <!--loop through users and make button to give someone confidant rights-->
+                        <!--loop through patient and make button to give someone confidant rights-->
                         @foreach($users as $user)
                             @if($user != Auth::user())
                                 <tr>

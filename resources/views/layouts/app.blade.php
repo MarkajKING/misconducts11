@@ -53,6 +53,8 @@
                         @endif
                     @else
                         <a href="/list" class="mt-2 text-decoration-none text-black-50 px-3">Vertrouwenspersonen</a>
+                        <a href="/patients" class="mt-2 text-decoration-none text-black-50 px-3">Patienten</a>
+
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
