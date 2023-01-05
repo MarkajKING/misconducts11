@@ -52,7 +52,7 @@
                             </li>
                         @endif
                     @else
-                        <a href="/vertrouwenspersonen" class="mt-2 text-decoration-none text-black-50 px-3">Vertrouwenspersonen</a>
+                        <a href="/list" class="mt-2 text-decoration-none text-black-50 px-3">Vertrouwenspersonen</a>
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -68,10 +68,7 @@
                                     <a class="dropdown-item" href="{{route('admin.index')}}">Gebruikers</a>
                                 @endif
 
-                                {{--Check if user is confidant, then show the confidant rights link--}}
-                                @if(Auth::user()->is_confidant)
-                                    <a class="dropdown-item" href="{{route('confidant.create')}}">Maak je account</a>
-                                @endif
+
 
 
                                 <a class="dropdown-item" href="{{ route('logout') }}"

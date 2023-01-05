@@ -16,10 +16,7 @@ class ConfidantController extends Controller
         return view('confidant.list', compact('confidants'));
     }
 
-    public function create()
-    {
-        return view('confidant.create');
-    }
+
 
     public function store(Request $request)
     {
