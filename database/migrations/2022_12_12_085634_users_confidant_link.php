@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
 
-        Schema::table('patient', function (Blueprint $table) {
+        Schema::table('confidants', function (Blueprint $table) {
             $table->foreignId('confidant_id')->nullable()->constrained()->cascadeOnDelete()->cascadeOnUpdate();
         });
 }

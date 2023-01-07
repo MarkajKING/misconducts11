@@ -11,5 +11,9 @@ class Confidant extends Model
     protected $primaryKey = 'id';
     protected $fillable = ['name', 'gender', 'age', 'speciality', 'background', 'email', 'phone', 'photo', 'excerpt', 'about', 'experiences', 'motto'];
 
+    public function Confidant () {
+        return $this->belongsToMany(Confidant::class);
+    }
+
     use HasFactory;
 }

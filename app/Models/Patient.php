@@ -11,5 +11,9 @@ class Patient extends Model
     protected $primaryKey = 'id';
     protected $fillable = ['name', 'email'];
 
+    public function Patient () {
+        return $this->belongsTo(Patient::class);
+    }
+
     use HasFactory;
 }
