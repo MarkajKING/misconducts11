@@ -14,7 +14,7 @@ View of the /vertrouwenspersonen page
             <div role="list" aria-label="Behind the scenes People " class="lg:flex md:flex sm:flex items-center xl:justify-between flex-wrap md:justify-around sm:justify-around lg:justify-around">
 
                 @if ($confidants->count())
-                    <x-confidants-grid :confidants="$confidants" />
+                    <x-confidants-grid :confidants="$confidants"></x-confidants-grid>
                 @else
                     <p class="text-center">Nu zijn er momenteel geen vertrouwenspersonen aanwezig. Kom later terug.</p>
                 @endif

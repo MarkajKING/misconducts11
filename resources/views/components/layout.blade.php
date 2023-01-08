@@ -63,9 +63,7 @@ Blade component of layout of the nav-bar
                                                      document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
-
-                                {{--Link naar mijn account--}}
-                                <a class="dropdown-item" href="/admin/mijn-account">Mijn Account</a>
+                                <a class="dropdown-item" href="/mijn-account/">Mijn Account</a></h5>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf

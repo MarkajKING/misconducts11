@@ -13,6 +13,8 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
@@ -61,9 +63,7 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-
-                                    {{--Link naar mijn account--}}
-                                    <a class="dropdown-item" href="/admin/mijn-account">Mijn Account</a>
+                                    <a class="dropdown-item" href="/mijn-account/">Mijn Account</a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf

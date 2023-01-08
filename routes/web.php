@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/handleiding', [HomeController::class, 'userGuide'])->name('home');
 
 Auth::routes();
 
@@ -27,9 +28,14 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/vertrouwenspersonen', [ConfidantController::class, 'index']);
 Route::get('/vertrouwenspersonen/{confidant:name}', [ConfidantController::class, 'show']);
 
-Route::post('/admin/mijn-account', [ConfidantController::class, 'store']);
-Route::get('/admin/mijn-informatie/create', [ConfidantController::class, 'create']);
-Route::get('/admin/mijn-account', [ConfidantController::class, 'all']);
+Route::get('/mijn-account/', [ConfidantController::class, 'adminIndex']);
+
+Route::get('/mijn-account/create', [ConfidantController::class, 'create']);
+Route::post('/mijn-account/', [ConfidantController::class, 'store'])->name('confidant');
+
+Route::get('/mijn-account/{confidant}/edit', [ConfidantController::class, 'edit']);
+Route::patch('admin/mijn-account/{confidant}', [ConfidantController::class, 'update'])->name('confidant');
+
 
 
 
