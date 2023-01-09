@@ -1,6 +1,10 @@
 <?php
 
+
+use App\Http\Controllers\AdminController;
+
 use App\Http\Controllers\ConfidantController;
+
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -24,9 +28,16 @@ Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
+
+Route::get('admin/users', [AdminController::class, 'index'])->name('admin.index');
+Route::patch('admin/{user}/confidantchecker', [AdminController::class, 'confidantchecker'])->name('admin.confidantchecker');
+Route::post('admin/search', [AdminController::class, 'search'])->name('admin.search');
+
 //Confidants
-Route::get('/vertrouwenspersonen', [ConfidantController::class, 'index']);
-Route::get('/vertrouwenspersonen/{confidant:name}', [ConfidantController::class, 'show']);
+Route::get('/vertrouwenspersonen', [ConfidantController::class, 'index'])->name("confidant.index");
+Route::get('/vertrouwenspersonen/{language}', [ConfidantController::class, 'filterLanguage'])->name('confidant.filterLanguage');
+Route::get('/vertrouwenspersonen/show/{id}', [ConfidantController::class, 'show'])->name('confidant.show');
+
 
 Route::get('/mijn-account/', [ConfidantController::class, 'adminIndex']);
 
@@ -35,6 +46,10 @@ Route::post('/mijn-account/', [ConfidantController::class, 'store'])->name('conf
 
 Route::get('/mijn-account/{confidant}/edit', [ConfidantController::class, 'edit']);
 Route::patch('admin/mijn-account/{confidant}', [ConfidantController::class, 'update'])->name('confidant');
+
+Route::post('/admin/mijn-account', [ConfidantController::class, 'store']);
+Route::get('/admin/mijn-informatie/create', [ConfidantController::class, 'create'])->name('confidant.create');
+Route::get('/admin/mijn-account', [ConfidantController::class, 'all']);
 
 
 

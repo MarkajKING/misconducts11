@@ -15,6 +15,15 @@ Sena
         <h1 class="text-lg font-bold text-4xl text-blue-500 mt-10 ">Hallo, {{ Auth::user()->name }}</h1>
 
         <p class="mt-1 text-sm text-gray-600">Hier kunt u uw account bekijken. </p>
+        <ul>
+            <li>
+                {{Auth::user()->name}}
+            </li>
+            <li>
+                {{Auth::user()->email}}
+            </li>
+        </ul>
+
 
         <div class="hidden sm:block" aria-hidden="true">
             <div class="py-10">
@@ -30,6 +39,7 @@ Sena
                 <div class=" overflow-hidden bg-white shadow sm:rounded-lg w-75">
                     <div class="border-gray-200">
 
+
                             <div class="bg-white px-4 py-4 mb-2">
                                 <p class="pt-3 mb-4">U heeft nog geen informatie over uzelf geschreven.
                                 <br> Om dat te doen, klik op de knop onderin.
@@ -39,6 +49,16 @@ Sena
                                    class="text-decoration-none my-5 bg-green-500 hover:bg-green-800 text-white font-semibold py-2 px-4  border border-gray-400 rounded shadow-sm "
                                 >Mijn Informatie</a>
                             </div>
+
+            <aside class="flex-shrink-0">
+
+{{--                <p>--}}
+{{--                    <a href="#"--}}
+{{--                       class="text-decoration-none mx-5 bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow-sm"--}}
+{{--                    >Link</a>--}}
+{{--                </p>--}}
+            </aside>
+
 
 
                     </div>
