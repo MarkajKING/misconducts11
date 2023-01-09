@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Confidant extends Model
 {
+    protected $table = 'confidants';
+    protected $primaryKey = 'id';
+    protected $fillable = ['name', 'gender', 'age', 'speciality', 'background', 'email', 'phone', 'photo', 'excerpt', 'about', 'experiences', 'motto'];
+
     use HasFactory;
 
     protected  $guarded = [];
@@ -15,4 +19,5 @@ class Confidant extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+
 }
