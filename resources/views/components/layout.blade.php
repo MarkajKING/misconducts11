@@ -59,8 +59,7 @@ Blade component of layout of the nav-bar
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 
-                                {{--Link naar mijn account--}}
-                                <a class="dropdown-item" href="/admin/mijn-account">Mijn Account</a>
+                                <a class="dropdown-item" href="/mijn-account/">Mijn Account</a></h5>
 
                                 {{--Check if user is admin, then show the admin rights link--}}
                                 @if(Auth::user()->is_admin)
@@ -72,15 +71,11 @@ Blade component of layout of the nav-bar
                                     <a class="dropdown-item" href="{{route('confidant.create')}}">Maak je account</a>
                                 @endif
 
-
-
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
-
-                                <a class="dropdown-item" href="/mijn-account/">Mijn Account</a></h5>
 
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

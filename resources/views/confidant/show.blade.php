@@ -47,7 +47,7 @@ View of the page where the information about the chosen confidant is shown
                             </p>
                             <p class="text-center text-success"> <strong>{{ $confidant->speciality }} </strong></p>
 
-                            <form class="mt-8">
+
                                 <div class="bg-gray-200 rounded mt-0 py-2 mx-2">
                                     <p class="font-italic text-center text-black-900 "><i class="fa-solid fa-user"></i><small> &nbsp; &nbsp; &nbsp;Persoonlijke Informatie</small></p>
                                     <div class="bg-gray-200 px-4 py-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -74,8 +74,24 @@ View of the page where the information about the chosen confidant is shown
                                     </div>
                                 </div>
 
-                                <button type="submit" class="mt-10 flex w-75 mx-5 items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Kies {{ $confidant->name }}</button>
+                            <form class="inline-flex justify-center rounded-md border border-transparent bg-green-500 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 text-decoration-none" action="{{route('confidant.addConfidant')}}"
+                                  method="POST">
+                                @csrf
+                                <label for="{{$confidant->id}}" style="display: none"></label>
+                                @if(Auth::user()->confidant_id === $confidant->id)
+                                    <button
+                                        type="submit" id="{{$confidant->id}}"
+                                        name="gedoeRemove"
+                                        class="btn " value="{{$confidant->id}}">Verwijder {{$confidant->name}}</button>
+                                @elseif(Auth::user()->confidant_id === null)
+                                    <button
+                                        type="submit" id="{{$confidant->id}}"
+                                        name="gedoeAdd"
+                                        class="btn" value="{{$confidant->id}}">Voeg {{$confidant->name}} toe</button>
+                                @endif
+
                             </form>
+
                         </div>
 
                         <div class="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pt-6 lg:pb-16 lg:pr-8">

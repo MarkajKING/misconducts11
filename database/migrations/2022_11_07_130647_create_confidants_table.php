@@ -15,13 +15,13 @@ return new class extends Migration
     {
         Schema::create('confidants', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
+            $table->foreignId('user_id')->default(0);
 
             $table->string('name');
             $table->string('gender');
             $table->integer('age');
             $table->string('background');
-            $table->string('language');
+            $table->string('language')->default('Nederlands');
             $table->string('email');
             $table->string('phone');
             $table->string('photo')->nullable();

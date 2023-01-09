@@ -1,5 +1,4 @@
-@extends('layouts.app')
-@section('content')
+<x-layout>
     <main>
 
         <!--MDB Tables-->
@@ -80,6 +79,6 @@
                     <!--Table-->
                 </div>
             </div>
-
+        </div>
     </main>
-@endsection
+</x-layout>

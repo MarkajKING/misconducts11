@@ -71,29 +71,31 @@
                                     </a>
                                     <a class="dropdown-item" href="/mijn-account/">Mijn Account</a>
 
-                                {{--Link naar mijn account--}}
-                                <a class="dropdown-item" href="/admin/mijn-account">Mijn Account</a>
+                                    {{--Link naar mijn account--}}
+                                    <a class="dropdown-item" href="/admin/mijn-account">Mijn Account</a>
 
-                                {{--Check if user is admin, then show the admin rights link--}}
-                                @if(Auth::user()->is_admin)
-                                    <a class="dropdown-item" href="{{route('admin.index')}}">Gebruikers</a>
-                                @endif
-
-
-                                {{--Check if user is confidant, then show the confidant rights link--}}
-                                @if(Auth::user()->is_confidant)
-                                    <a class="dropdown-item" href="{{route('confidant.create')}}">Maak je account</a>
-                                @endif
+                                    {{--Check if user is admin, then show the admin rights link--}}
+                                    @if(Auth::user()->is_admin)
+                                        <a class="dropdown-item" href="{{route('admin.index')}}">Gebruikers</a>
+                                    @endif
 
 
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                   onclick="event.preventDefault();
+                                    {{--Check if user is confidant, then show the confidant rights link--}}
+                                    @if(Auth::user()->is_confidant)
+                                        <a class="dropdown-item" href="{{route('confidant.create')}}">Maak je
+                                            account</a>
+                                    @endif
+
+
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
+                                        {{ __('Logout') }}
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
                             </div>
                         </li>
                     @endguest

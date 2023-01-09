@@ -18,20 +18,9 @@ class ConfidantController extends Controller
     {
 
         $confidants = Confidant::all();
-        return view('confidant.list', compact('confidants'));
+        return view('confidant.confidants', compact('confidants'));
     }
 
-    public function create()
-    {
-        return view('confidant.create');
-    }
-
-    public function store(Request $request)
-    {
-        $input = $request->all();
-        Confidant::create($input);
-        return redirect('confidant')->with('flash_message', 'Confidant saved!');
-    }
 
     public function show($id)
     {
@@ -42,15 +31,7 @@ class ConfidantController extends Controller
     public function edit($id)
     {
         $confidant = Confidant::find($id);
-        return view('confidant.edit')->with('confidant', $confidant);
-    }
-
-    public function update(Request $request, $id)
-    {
-        $confidant = Confidant::find($id);
-        $input = $request->all();
-        $confidant->update($input);
-        return redirect('confidant')->with('flash_message', 'Confidant updated!');
+        return view('admin.edit')->with('confidant', $confidant);
     }
 
     public function destroy($id)
@@ -61,7 +42,6 @@ class ConfidantController extends Controller
 
     public function addConfidant(Request $request)
     {
-//        dd($request);
         $user = User::find(Auth::user()->id);
         if ($request->has('gedoeAdd')) {
             $user->confidant_id = $request->input('gedoeAdd');
@@ -81,6 +61,7 @@ class ConfidantController extends Controller
 
     public function adminIndex()
     {
+
         return view('admin.index', [
             'confidants' => Confidant::where('user_id','=', Auth::id())->get()
         ]);
@@ -88,39 +69,18 @@ class ConfidantController extends Controller
     }
 
 
-    //Show page where the selected confidants information is shown
-    public function show($id)
-    {
-        $confidant = Confidant::find($id);
-
-        return view('confidant.show', compact('confidant'));
-    }
-
     //Create page where the confidant can write their information
     public function create(Confidant $confidant)
     {
-
         $confidant = new Confidant();
         return view('confidant.info', compact ('confidant'));
     }
 
-    public function edit(Confidant $confidant) {
-
-        return view('admin.edit', compact ('confidant'));
-
-        if (\Auth::user()->is_confidant){
-            return view('confidant.info');
-        } else
-        {
-            abort(403);
-        }
-
-
-    }
 
     //Function to store the written information in the database
     public function store()
     {
+
         $attributes = request()->validate([
             'name' => 'required',
             'age' => 'required|max:2|min:1',
@@ -132,13 +92,13 @@ class ConfidantController extends Controller
             'photo' => ['required', 'image'],
 
             'speciality' => 'required',
-            'excerpt' => 'required|max:400|min:100',
+            'excerpt' => 'required|min:10|max:500',
             'about' => 'required|min:100',
             'experiences' => 'required|min:100',
             'motto' => 'required|min:1|max:30',
         ]);
 
-        $attributes['user_id'] = auth()->id();
+        $attributes['user_id'] = Auth::user()->id;
         $attributes['photo'] = request()->file('photo')->store('photos');
 
         Confidant::create($attributes);
@@ -155,7 +115,7 @@ class ConfidantController extends Controller
             'gender' => 'required',
             'background' => 'required|min:3|max:25',
             'language' => 'required',
-            'phone' => ['required','numeric', 'digits:10'],
+            'phone' => ['required', 'numeric', 'digits:10'],
             'email' => ['required', 'email', 'min:3'],
             'photo' => ['required', 'image'],
 
@@ -174,6 +134,7 @@ class ConfidantController extends Controller
         $confidant->update($attributes);
 
         return redirect('/mijn-account');
+    }
 
     public function filterLanguage($language)
     {

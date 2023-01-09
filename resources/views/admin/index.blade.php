@@ -30,25 +30,27 @@ Sena
                 <div class="border-t border-gray-200"></div>
             </div>
         </div>
+@if(Auth::user()->is_confidant)
+            <div class="flex justify-content-center">
 
-        <div class="flex justify-content-center">
-
-            @if ($confidants->count())
-                <x-myinfo-grid :confidants="$confidants"></x-myinfo-grid>
-            @else
-                <div class=" overflow-hidden bg-white shadow sm:rounded-lg w-75">
-                    <div class="border-gray-200">
+                @if ($confidants->count())
+                    <x-myinfo-grid :confidants="$confidants"></x-myinfo-grid>
+                @else
+                    <div class=" overflow-hidden bg-white shadow sm:rounded-lg w-75">
+                        <div class="border-gray-200">
 
 
                             <div class="bg-white px-4 py-4 mb-2">
                                 <p class="pt-3 mb-4">U heeft nog geen informatie over uzelf geschreven.
-                                <br> Om dat te doen, klik op de knop onderin.
+                                    <br> Om dat te doen, klik op de knop onderin.
                                 </p>
 
                                 <a href="/mijn-account/create"
                                    class="text-decoration-none my-5 bg-green-500 hover:bg-green-800 text-white font-semibold py-2 px-4  border border-gray-400 rounded shadow-sm "
                                 >Mijn Informatie</a>
                             </div>
+@endif
+
 
             <aside class="flex-shrink-0">
 
