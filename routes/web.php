@@ -33,7 +33,7 @@ Route::patch('admin/{user}/confidantchecker', [AdminController::class, 'confidan
 Route::post('admin/search', [AdminController::class, 'search'])->name('admin.search');
 
 //Confidants
-Route::get('/vertrouwenspersonen', [ConfidantController::class, 'index']);
+Route::get('/vertrouwenspersonen', [ConfidantController::class, 'index'])->name("confidant.index");
 Route::get('/vertrouwenspersonen/{language}', [ConfidantController::class, 'filterLanguage'])->name('confidant.filterLanguage');
 Route::get('/vertrouwenspersonen/show/{id}', [ConfidantController::class, 'show'])->name('confidant.show');
 
