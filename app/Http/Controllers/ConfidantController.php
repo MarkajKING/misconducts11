@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Models\Confidant;
 use App\Models\User;
 use Illuminate\Http\Request;
-use App\Models\Confidant;
 use Illuminate\Support\Facades\Auth;
-======
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Validation\Rule;
+use Illuminate\View\View;
 
 
 class ConfidantController extends Controller
@@ -71,20 +71,22 @@ class ConfidantController extends Controller
         $user->save();
 
         return redirect('list')->with('flash_message', 'Confidant updated!');
-=======
+
         return view('confidant.confidants', [
-            'confidants' => Confidant::all()
+            'confidants' => Confidant::latest()->get()
         ]);
 
     }
 
-    //This function refers to the admin page which will be changed but i just needed it for now :)
-    public function all(Confidant $confidant)
+
+    public function adminIndex()
     {
         return view('admin.index', [
-            'confidant' => $confidant
+            'confidants' => Confidant::where('user_id','=', Auth::id())->get()
         ]);
+
     }
+
 
     //Show page where the selected confidants information is shown
     public function show($id)
@@ -95,9 +97,25 @@ class ConfidantController extends Controller
     }
 
     //Create page where the confidant can write their information
-    public function create()
+    public function create(Confidant $confidant)
     {
-        return view('confidant.info');
+
+        $confidant = new Confidant();
+        return view('confidant.info', compact ('confidant'));
+    }
+
+    public function edit(Confidant $confidant) {
+
+        return view('admin.edit', compact ('confidant'));
+
+        if (\Auth::user()->is_confidant){
+            return view('confidant.info');
+        } else
+        {
+            abort(403);
+        }
+
+
     }
 
     //Function to store the written information in the database
@@ -125,8 +143,37 @@ class ConfidantController extends Controller
 
         Confidant::create($attributes);
 
-        return redirect('/admin/mijn-account');
+        return redirect('/mijn-account/');
     }
+
+    public function update(Confidant $confidant)
+    {
+
+        $attributes = request()->validate([
+            'name' => 'required',
+            'age' => 'required|max:2|min:1',
+            'gender' => 'required',
+            'background' => 'required|min:3|max:25',
+            'language' => 'required',
+            'phone' => ['required','numeric', 'digits:10'],
+            'email' => ['required', 'email', 'min:3'],
+            'photo' => ['required', 'image'],
+
+            'speciality' => 'required',
+            'excerpt' => 'required|max:400|min:100',
+            'about' => 'required|min:100',
+            'experiences' => 'required|min:100',
+            'motto' => 'required|min:1|max:30',
+        ]);
+
+        if (isset($attributes['photo'])) {
+            $attributes['photo'] = request()->file('photo')->store('photos');
+        }
+
+
+        $confidant->update($attributes);
+
+        return redirect('/mijn-account');
 
     public function filterLanguage($language)
     {
@@ -134,5 +181,6 @@ class ConfidantController extends Controller
         ->get();
 
         return view('confidant.confidants', compact('confidants'));
+
     }
 }

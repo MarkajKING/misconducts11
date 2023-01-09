@@ -80,6 +80,9 @@ Blade component of layout of the nav-bar
                                     {{ __('Logout') }}
                                 </a>
 
+                                <a class="dropdown-item" href="/mijn-account/">Mijn Account</a></h5>
+
+
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
                                 </form>

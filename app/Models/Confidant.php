@@ -12,9 +12,12 @@ class Confidant extends Model
     protected $fillable = ['name', 'gender', 'age', 'speciality', 'background', 'email', 'phone', 'photo', 'excerpt', 'about', 'experiences', 'motto'];
 
     use HasFactory;
-=======
 
     protected  $guarded = [];
 
+    public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 
 }
