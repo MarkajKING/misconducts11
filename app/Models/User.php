@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Confidant;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -42,8 +43,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function confidantinfos()
+    public function confidants(): \Illuminate\Database\Eloquent\Relations\HasOne
     {
-        return $this->hasOne(ConfidantInfo::class);
+        return $this->hasOne(Confidant::class, 'user_id');
     }
 }

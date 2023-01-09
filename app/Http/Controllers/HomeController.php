@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Confidant;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -21,8 +22,15 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Confidant $confidant)
     {
-        return view('home');
+        return view('home', [
+        'confidant' => $confidant
+    ]);
+    }
+
+    public function userGuide()
+    {
+        return view ('userguide');
     }
 }

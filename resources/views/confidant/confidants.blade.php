@@ -24,7 +24,7 @@ View of the /vertrouwenspersonen page
 
 
                 @if ($confidants->count())
-                    <x-confidants-grid :confidants="$confidants" />
+                    <x-confidants-grid :confidants="$confidants"></x-confidants-grid>
                 @else
                     <p class="text-center">Nu zijn er momenteel geen vertrouwenspersonen aanwezig. Kom later terug.</p>
                 @endif

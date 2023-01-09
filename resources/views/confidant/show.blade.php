@@ -36,31 +36,45 @@ View of the page where the information about the chosen confidant is shown
                             <h1 class="text-5xl font-bold tracking-tight text-gray-900 sm:text-3xl">{{ $confidant->name }}</h1>
                         </div>
 
-                        <div class="mt-4 lg:row-span-3 lg:mt-0 bg-light px-5 pb-10 rounded shadow-md">
-                            <div class="h-64 w-64 mt-5 mb-5">
+                        <div class="mt-4 lg:row-span-3 lg:mt-0 bg-light px-0 pb-10 rounded shadow-md">
+                            <div class="h-64 w-64 mt-0 mb-5 mx-5">
                                 <img src="{{ asset('storage/' . $confidant->photo) }}" role="img" class="rounded-full object-cover h-full w-full shadow-md" />
                             </div>
 
-                            <form class="mt-10">
-                                <div>
-                                    <h3 class="text-sm font-bold text-gray-900 ">{{ $confidant->name }}</h3>
-                                        <p class="mt-1 mb-1"> Leeftijd: {{ $confidant->age }}</p>
-                                        <p class="mt-1 mb-1"> Geslacht: {{ $confidant->gender }}</p>
-                                        <p class="mt-1 mb-1"> Achtergrond: {{ $confidant->background }}</p>
-                                    <p class="mt-1 mb-1"> Talen: {{ $confidant->language }}</p>
-                                </div>
+                            <p class="text-center mb-0 pb-0 w-100 rounded ">
+                            <i class="fa-regular fa-address-card"></i>
+                            &nbsp;Gespeciliseerd in
+                            </p>
+                            <p class="text-center text-success"> <strong>{{ $confidant->speciality }} </strong></p>
 
-                                <div>
-                                    <p class="mt-3 mb-1"> Gespecialiseerd in het onderwerp {{ $confidant->speciality }}</p>
-                                </div>
-
-                                <div class="mt-10">
-                                    <div class="flex items-center justify-between">
-                                        <h3 class="text-sm font-medium text-gray-500">" {{ $confidant->motto }} "</h3>
+                            <form class="mt-8">
+                                <div class="bg-gray-200 rounded mt-0 py-2 mx-2">
+                                    <p class="font-italic text-center text-black-900 "><i class="fa-solid fa-user"></i><small> &nbsp; &nbsp; &nbsp;Persoonlijke Informatie</small></p>
+                                    <div class="bg-gray-200 px-4 py-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                        <dt class="text-sm font-medium text-gray-500">Leeftijd</dt>
+                                        <dd class="mt-0 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{ $confidant->age }}</dd>
+                                    </div>
+                                    <div class="bg-gray-200 px-4 py-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                        <dt class="text-sm font-medium text-gray-500">Achtergrond</dt>
+                                        <dd class="mt-0 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{ $confidant->background }}</dd>
+                                    </div>
+                                    <div class="bg-gray-200 px-4 py-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                        <dt class="text-sm font-medium text-gray-500">Geslacht</dt>
+                                        <dd class="mt-0 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{ $confidant->gender }}</dd>
+                                    </div>
+                                    <div class="bg-gray-200 px-4 py-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                        <dt class="text-sm font-medium text-gray-500">Talen</dt>
+                                        <dd class="mt-0 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{ $confidant->language }}</dd>
                                     </div>
                                 </div>
 
-                                <button type="submit" class="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Kies {{ $confidant->name }}</button>
+                                <div class="mt-8">
+                                    <div class="flex items-center justify-between">
+                                        <h3 class="text-sm text-center w-full font-medium text-gray-500">" {{ $confidant->motto }} "</h3>
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="mt-10 flex w-75 mx-5 items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Kies {{ $confidant->name }}</button>
                             </form>
                         </div>
 

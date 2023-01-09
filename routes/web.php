@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/handleiding', [HomeController::class, 'userGuide'])->name('home');
 
 Auth::routes();
 
@@ -36,6 +37,15 @@ Route::post('admin/search', [AdminController::class, 'search'])->name('admin.sea
 Route::get('/vertrouwenspersonen', [ConfidantController::class, 'index'])->name("confidant.index");
 Route::get('/vertrouwenspersonen/{language}', [ConfidantController::class, 'filterLanguage'])->name('confidant.filterLanguage');
 Route::get('/vertrouwenspersonen/show/{id}', [ConfidantController::class, 'show'])->name('confidant.show');
+
+
+Route::get('/mijn-account/', [ConfidantController::class, 'adminIndex']);
+
+Route::get('/mijn-account/create', [ConfidantController::class, 'create']);
+Route::post('/mijn-account/', [ConfidantController::class, 'store'])->name('confidant');
+
+Route::get('/mijn-account/{confidant}/edit', [ConfidantController::class, 'edit']);
+Route::patch('admin/mijn-account/{confidant}', [ConfidantController::class, 'update'])->name('confidant');
 
 Route::post('/admin/mijn-account', [ConfidantController::class, 'store']);
 Route::get('/admin/mijn-informatie/create', [ConfidantController::class, 'create'])->name('confidant.create');

@@ -53,295 +53,295 @@ View of the page where the confidant writes information about him or herself
                 </div>
 
                 <div class="col">
-                    <form method="POST" action="/admin/mijn-account" enctype="multipart/form-data">
-                        @csrf
 
-                        <div class="mb-6">
-                            <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
-                                   for="name"
-                            >
-                                Voor- en Achternaam
-                            </label>
+                        <form method="POST" action="/mijn-account/" enctype="multipart/form-data">
+                            @csrf
 
-                            <input class="border border-gray-400 p-2 w-full rounded"
-                                   type="text"
-                                   name="name"
-                                   id="name"
-                                   value="{{ old('name') }}"
-                                   required
-                            >
+                            <div class="mb-6">
+                                <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
+                                       for="name"
+                                >
+                                    Voor- en Achternaam
+                                </label>
 
-                            @error('name')
-                            <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
-                            @enderror
-                        </div>
+                                <input class="border border-gray-400 p-2 w-full rounded"
+                                       type="text"
+                                       name="name"
+                                       id="name"
+                                       value="{{ old('name') }}"
+                                       required
+                                >
 
-                        <div class="mb-6">
-                            <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
-                                   for="gender"
-                            >
-                                Geslacht
-                            </label>
+                                @error('name')
+                                <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
 
-                            <select class="border border-gray-400 p-2 w-full rounded"
-                                   type="text"
-                                   name="gender"
-                                   id="gender"
-                                   required
-                            >
+                            <div class="mb-6">
+                                <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
+                                       for="gender"
+                                >
+                                    Geslacht
+                                </label>
+
+                                <select class="border border-gray-400 p-2 w-full rounded"
+                                        type="text"
+                                        name="gender"
+                                        id="gender"
+                                        required
+                                >
                                     <option>-</option>
                                     <option>Vrouw</option>
                                     <option>Man</option>
-                            </select>
+                                </select>
 
-                            @error('gender')
-                            <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
-                            @enderror
-                        </div>
-
-                        <div class="mb-6">
-                            <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
-                                   for="age"
-                            >
-                                Leeftijd
-                            </label>
-
-                            <input class="border border-gray-400 p-2 w-full rounded"
-                                   type="text"
-                                   name="age"
-                                   id="age"
-                                   value="{{ old('age') }}"
-                                   required
-                            >
-
-                            @error('age')
-                            <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
-                            @enderror
-                        </div>
-
-                        <div class="mb-6">
-                            <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
-                                   for="background"
-                            >
-                                Achtergrond
-                            </label>
-
-                            <input class="border border-gray-400 p-2 w-full rounded"
-                                   type="text"
-                                   name="background"
-                                   id="background"
-                                   value="{{ old('background') }}"
-                                   required
-                            >
-
-                            @error('background')
-                            <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
-                            @enderror
-                        </div>
-
-                        <div class="mb-6">
-                            <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
-                                   for="language"
-                            >
-                                Taal
-                            </label>
-
-                            <input class="border border-gray-400 p-2 w-full rounded"
-                                   type="text"
-                                   name="language"
-                                   id="language"
-                                   value="{{ old('language') }}"
-                                   required
-                            >
-
-                            @error('language')
-                            <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
-                            @enderror
-                        </div>
-
-                        <div class="mb-6">
-                            <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
-                                   for="email"
-                            >
-                                E-mail
-                            </label>
-
-                            <input class="border border-gray-400 p-2 w-full rounded"
-                                   type="text"
-                                   name="email"
-                                   id="email"
-                                   value="{{ old('email') }}"
-                                   placeholder="voorbeeld@email.nl"
-                                   required
-                            >
-
-                            @error('email')
-                            <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
-                            @enderror
-                        </div>
-
-                        <div class="mb-6">
-                            <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
-                                   for="phone"
-                            >
-                                Telefoon nummer
-                            </label>
-
-                            <input class="border border-gray-400 p-2 w-full rounded"
-                                   type="text"
-                                   name="phone"
-                                   id="phone"
-                                   value="{{ old('phone') }}"
-                                   placeholder="06-00000000"
-                                   required
-                            >
-
-                            @error('phone')
-                            <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
-                            @enderror
-                        </div>
-
-                        <div class="mb-6">
-                            <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
-                                   for="photo"
-                            >
-                                Foto
-                            </label>
-
-                            <input class="border border-gray-400 p-2 w-full rounded"
-                                   type="file"
-                                   name="photo"
-                                   id="photo"
-                                   value="{{ old('photo') }}"
-                                   required
-                            >
-
-                            @error('phone_number')
-                            <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
-                            @enderror
-                        </div>
-
-                        <div class="hidden sm:block" aria-hidden="true">
-                            <div class="py-10">
-                                <div class="border-t border-gray-200"></div>
+                                @error('gender')
+                                <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
-                        </div>
 
-                        <div class="mb-6">
-                            <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
-                                   for="speciality"
-                            >
-                                Gespecialiseerd in
-                            </label>
+                            <div class="mb-6">
+                                <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
+                                       for="age"
+                                >
+                                    Leeftijd
+                                </label>
 
-                            <select class="border border-gray-400 p-2 w-full rounded"
-                                    type="text"
-                                    name="speciality"
-                                    id="speciality"
-                                    required
-                            >
-                                <option>-</option>
-                                <option>Intimidatie</option>
-                                <option>Discriminatie</option>
-                                <option>Pesten</option>
-                                <option>Seksuele intimidatie</option>
-                                <option>Geweld/Agressie</option>
-                            </select>
+                                <input class="border border-gray-400 p-2 w-full rounded"
+                                       type="text"
+                                       name="age"
+                                       id="age"
+                                       value="{{ old('age') }}"
+                                       required
+                                >
 
-                            @error('speciality')
-                            <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
-                            @enderror
-                        </div>
-
-                        <div class="mb-6">
-                            <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
-                                   for="excerpt"
-                            >
-                                Excerpt
-                            </label>
-
-                            <textarea class="border border-gray-400 p-2 w-full rounded"
-                                      name="excerpt"
-                                      id="excerpt"
-                                      required
-                            >{{ old('excerpt') }}</textarea>
-
-                            @error('excerpt')
-                            <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
-                            @enderror
-                        </div>
-
-                        <div class="mb-6">
-                            <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
-                                   for="about"
-                            >
-                                Over u
-                            </label>
-
-                            <textarea class="border border-gray-400 p-2 w-full rounded"
-                                      name="about"
-                                      id="about"
-                                      rows="7"
-                                      required
-                            >{{ old('about') }}</textarea>
-
-                            @error('about')
-                            <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
-                            @enderror
-                        </div>
-
-                        <div class="mb-6">
-                            <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
-                                   for="experiences"
-                            >
-                                Ervaringen
-                            </label>
-
-                            <textarea class="border border-gray-400 p-2 w-full rounded"
-                                      name="experiences"
-                                      id="experiences"
-                                      rows="7"
-                                      required
-                            >{{ old('experiences') }}</textarea>
-
-                            @error('experiences')
-                            <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
-                            @enderror
-                        </div>
-
-                        <div class="mb-6">
-                            <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
-                                   for="motto"
-                            >
-                                Motto
-                            </label>
-
-                            <input class="border border-gray-400 p-2 w-full rounded"
-                                   type="text"
-                                   name="motto"
-                                   id="motto"
-                                   value="{{ old('motto') }}"
-                                   required
-                            >
-
-                            @error('motto')
-                            <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
-                            @enderror
-                        </div>
-
-                        <div class="hidden sm:block" aria-hidden="true">
-                            <div class="py-10">
-                                <div class="border-t border-gray-200"></div>
+                                @error('age')
+                                <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
-                        </div>
 
-                        <button type="submit"
-                                class="bg-green-500 text-white uppercase font-semibold text-xs py-2 px-10 rounded-xl hover:bg-blue-600"
-                        >Opslaan</button>
+                            <div class="mb-6">
+                                <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
+                                       for="background"
+                                >
+                                    Achtergrond
+                                </label>
 
-                    </form>
+                                <input class="border border-gray-400 p-2 w-full rounded"
+                                       type="text"
+                                       name="background"
+                                       id="background"
+                                       value="{{ old('background') }}"
+                                       required
+                                >
+
+                                @error('background')
+                                <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+
+                            <div class="mb-6">
+                                <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
+                                       for="language"
+                                >
+                                    Taal
+                                </label>
+
+                                <input class="border border-gray-400 p-2 w-full rounded"
+                                       type="text"
+                                       name="language"
+                                       id="language"
+                                       value="{{ old('language') }}"
+                                       required
+                                >
+
+                                @error('language')
+                                <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+
+                            <div class="mb-6">
+                                <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
+                                       for="email"
+                                >
+                                    E-mail
+                                </label>
+
+                                <input class="border border-gray-400 p-2 w-full rounded"
+                                       type="text"
+                                       name="email"
+                                       id="email"
+                                       value="{{ old('email') }}"
+                                       placeholder="voorbeeld@email.nl"
+                                       required
+                                >
+
+                                @error('email')
+                                <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+
+                            <div class="mb-6">
+                                <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
+                                       for="phone"
+                                >
+                                    Telefoon nummer
+                                </label>
+
+                                <input class="border border-gray-400 p-2 w-full rounded"
+                                       type="text"
+                                       name="phone"
+                                       id="phone"
+                                       value="{{ old('phone') }}"
+                                       placeholder="06-00000000"
+                                       required
+                                >
+
+                                @error('phone')
+                                <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+
+                            <div class="mb-6">
+                                <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
+                                       for="photo"
+                                >
+                                    Foto
+                                </label>
+
+                                <input class="border border-gray-400 p-2 w-full rounded"
+                                       type="file"
+                                       name="photo"
+                                       id="photo"
+                                       value="{{ old('photo') }}"
+                                       required
+                                >
+
+                                @error('phone_number')
+                                <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+
+                            <div class="hidden sm:block" aria-hidden="true">
+                                <div class="py-10">
+                                    <div class="border-t border-gray-200"></div>
+                                </div>
+                            </div>
+
+                            <div class="mb-6">
+                                <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
+                                       for="speciality"
+                                >
+                                    Gespecialiseerd in
+                                </label>
+
+                                <select class="border border-gray-400 p-2 w-full rounded"
+                                        type="text"
+                                        name="speciality"
+                                        id="speciality"
+                                        required
+                                >
+                                    <option>-</option>
+                                    <option>Intimidatie</option>
+                                    <option>Discriminatie</option>
+                                    <option>Pesten</option>
+                                    <option>Seksuele intimidatie</option>
+                                    <option>Geweld/Agressie</option>
+                                </select>
+
+                                @error('speciality')
+                                <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+
+                            <div class="mb-6">
+                                <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
+                                       for="excerpt"
+                                >
+                                    Excerpt
+                                </label>
+
+                                <textarea class="border border-gray-400 p-2 w-full rounded"
+                                          name="excerpt"
+                                          id="excerpt"
+                                          required
+                                >{{ old('excerpt') }}</textarea>
+
+                                @error('excerpt')
+                                <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+
+                            <div class="mb-6">
+                                <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
+                                       for="about"
+                                >
+                                    Over u
+                                </label>
+
+                                <textarea class="border border-gray-400 p-2 w-full rounded"
+                                          name="about"
+                                          id="about"
+                                          rows="7"
+                                          required
+                                >{{ old('about') }}</textarea>
+
+                                @error('about')
+                                <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+
+                            <div class="mb-6">
+                                <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
+                                       for="experiences"
+                                >
+                                    Ervaringen
+                                </label>
+
+                                <textarea class="border border-gray-400 p-2 w-full rounded"
+                                          name="experiences"
+                                          id="experiences"
+                                          rows="7"
+                                          required
+                                >{{ old('experiences') }}</textarea>
+
+                                @error('experiences')
+                                <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+
+                            <div class="mb-6">
+                                <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
+                                       for="motto"
+                                >
+                                    Motto
+                                </label>
+
+                                <input class="border border-gray-400 p-2 w-full rounded"
+                                       type="text"
+                                       name="motto"
+                                       id="motto"
+                                       value="{{ old('motto') }}"
+                                       required
+                                >
+
+                                @error('motto')
+                                <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+
+                            <div class="hidden sm:block" aria-hidden="true">
+                                <div class="py-10">
+                                    <div class="border-t border-gray-200"></div>
+                                </div>
+                            </div>
+
+                            <button type="submit"
+                                    class="bg-green-500 text-white uppercase font-semibold text-xs py-2 px-10 rounded-xl hover:bg-blue-600"
+                            >Opslaan</button>
+
+                        </form>
                 </div>
-
             </div>
         </div>
 

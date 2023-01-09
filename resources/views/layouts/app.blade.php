@@ -13,6 +13,8 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
@@ -59,6 +61,15 @@
                             </a>
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 
+
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+                                    <a class="dropdown-item" href="/mijn-account/">Mijn Account</a>
+
                                 {{--Link naar mijn account--}}
                                 <a class="dropdown-item" href="/admin/mijn-account">Mijn Account</a>
 
@@ -66,6 +77,7 @@
                                 @if(Auth::user()->is_admin)
                                     <a class="dropdown-item" href="{{route('admin.index')}}">Gebruikers</a>
                                 @endif
+
 
                                 {{--Check if user is confidant, then show the confidant rights link--}}
                                 @if(Auth::user()->is_confidant)
