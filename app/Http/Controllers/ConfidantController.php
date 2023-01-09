@@ -36,7 +36,13 @@ class ConfidantController extends Controller
     //Create page where the confidant can write their information
     public function create()
     {
-        return view('confidant.info');
+        if (\Auth::user()->is_confidant){
+            return view('confidant.info');
+        } else
+        {
+            abort(403);
+        }
+
     }
 
     //Function to store the written information in the database

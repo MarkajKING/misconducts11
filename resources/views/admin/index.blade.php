@@ -13,6 +13,15 @@ Sena
         <h1 class="text-lg font-bold text-4xl text-blue-500 mt-10 ">Hallo, {{ Auth::user()->name }}</h1>
 
         <p class="mt-1 text-sm text-gray-600">Hier kunt u uw account bekijken. </p>
+        <ul>
+            <li>
+                {{Auth::user()->name}}
+            </li>
+            <li>
+                {{Auth::user()->email}}
+            </li>
+        </ul>
+
 
         <div class="hidden sm:block" aria-hidden="true">
             <div class="py-10">
@@ -23,17 +32,12 @@ Sena
         <div class="flex">
 
             <aside class="flex-shrink-0">
-                <p>
-                    <a href="/admin/mijn-informatie/create"
-                       class="text-decoration-none mx-5 bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow-sm"
-                    >Mijn Informatie</a>
-                </p>
 
-                <p>
-                    <a href="#"
-                       class="text-decoration-none mx-5 bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow-sm"
-                    >Link</a>
-                </p>
+{{--                <p>--}}
+{{--                    <a href="#"--}}
+{{--                       class="text-decoration-none mx-5 bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow-sm"--}}
+{{--                    >Link</a>--}}
+{{--                </p>--}}
             </aside>
 
             <main class="flex-1">
